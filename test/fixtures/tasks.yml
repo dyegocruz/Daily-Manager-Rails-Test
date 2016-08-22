@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  yesterday: MyString
+  today: MyString
+  impediments: MyString
+  task_date: 2016-08-21
+
+two:
+  user_id: 1
+  yesterday: MyString
+  today: MyString
+  impediments: MyString
+  task_date: 2016-08-21

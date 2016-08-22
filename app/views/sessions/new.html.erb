@@ -1,0 +1,20 @@
+
+<div class="page-header">
+  <h1>Daily Manager</h1>
+</div>
+
+<h2 class="form-signin-heading">Please sign in</h2>
+
+<% if flash[:alert] %>
+	<p id="notice"><%= flash[:alert] %></p>
+<% end%>
+
+<%= form_tag({:class => 'form-signin'}) do %>	
+			
+	<%= label_tag :login, 'Login', class: 'sr-only' %>
+	<%= text_field_tag :login, params[:login], class: 'form-control', placeholder: 'Login' %>
+	<%= label_tag :password, 'Password', class: 'sr-only' %>
+	<%= password_field_tag :password, params[:password], class: 'form-control', placeholder: 'Password' %>
+
+	<%= submit_tag "Login", class: 'btn btn-lg btn-primary btn-block' %>	
+<% end %>

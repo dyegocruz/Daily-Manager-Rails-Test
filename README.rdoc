@@ -1,0 +1,9 @@
+== README
+
+Projetct developed to measure my knowledge in ruby on rails
+
+Run bundle install
+
+Run rake db:migrate
+
+Run rake db:setup (to create the fisrt user)
