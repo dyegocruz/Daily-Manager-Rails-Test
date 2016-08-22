@@ -1,7 +1,6 @@
 class CreateTasks < ActiveRecord::Migration
   def change
-    create_table :tasks do |t|
-      t.integer :user_id
+    create_table :tasks do |t|      
       t.string :yesterday
       t.string :today
       t.string :impediments

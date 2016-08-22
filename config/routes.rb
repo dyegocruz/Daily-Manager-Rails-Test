@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   resources :team_members
   resources :teams
   resources :tasks
-  #get 'admin/index'
-  #get 'sessions/new'
+  
   get 'sessions/create'
   get 'sessions/destroy'
   resources :users
