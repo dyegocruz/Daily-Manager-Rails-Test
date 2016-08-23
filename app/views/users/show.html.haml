@@ -1,0 +1,13 @@
+%h1 Show User
+
+%p
+  %strong Login:
+  = @user.login
+
+%p
+  %strong Email:
+  = @user.email
+
+= link_to 'Edit', edit_user_path(@user), :class => 'btn btn-success'
+= '|'
+= link_to 'Back', users_path, :class => 'btn btn-danger'

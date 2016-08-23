@@ -27,6 +27,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
+gem 'haml'
+gem 'devise', '~> 4.2'
+gem 'simple_form'
 gem 'tzinfo-data'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 

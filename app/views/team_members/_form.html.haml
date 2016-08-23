@@ -1,0 +1,29 @@
+= simple_form_for(@team_member) do |f|
+  -if @team_member.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@team_member.errors.count, "error") + 'prohibited this user from being saved:'
+
+      %ul
+        -@team_member.errors.full_messages.each do |message|
+          %li= message
+
+  %div.row
+    %div.col-md-6
+
+      %div.form-group
+        = f.label :user_id
+        = f.collection_select :user_id, User.order(:login),:id,:login,{:include_blank => 'Choose one User'}, {:class => 'form-control'}
+  
+      %div.form-group
+        = f.label :team_id
+        = f.collection_select :team_id, Team.order(:name),:id,:name,{:include_blank => 'Choose one Team'}, {:class => 'form-control'}
+
+      %div.checkbox
+        %label
+          = f.check_box :is_leader
+          = 'Is Leader'
+  
+      %div.actions
+        %button.btn.btn-warning{type: 'submit'}
+          ="Gravar"

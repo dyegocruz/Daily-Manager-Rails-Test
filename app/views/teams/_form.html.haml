@@ -1,0 +1,20 @@
+= simple_form_for(@team, html: {class: 'form-horizontal' }) do |f|
+  -if @team.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@team.errors.count, "error") + 'prohibited this user from being saved:'
+
+      %ul
+        -@team.errors.full_messages.each do |message|
+          %li= message  
+
+  %div.row
+    %div.col-md-6
+
+      %div.form-group
+        = f.label :name    
+        = f.text_field :name, :required => true, :class=> "form-control"
+      
+      %div.actions
+        %button.btn.btn-warning{type: 'submit'}
+          ="Gravar"

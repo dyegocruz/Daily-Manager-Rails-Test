@@ -1,0 +1,11 @@
+%h1 Show Team
+
+%p#notice= notice
+
+%p
+  %strong Name:
+  = @team.name
+
+= link_to 'Edit', edit_team_path(@team), :class => 'btn btn-success'
+= '|'
+= link_to 'Back', teams_path, :class => 'btn btn-danger'

@@ -1,0 +1,19 @@
+%div.page-header
+  %h1 Listing Teams
+  
+= link_to 'New Team', new_team_path, :class => 'btn btn-success'
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th Name
+      %th #
+  %tbody
+    -@teams.each do |team|
+      %tr
+        %td= team.name
+        %td
+          %div.btn-group
+            = link_to  'Show', team, :class => 'btn btn-info'
+            = link_to 'Edit', edit_team_path(team), :class => 'btn btn-success'
+            = link_to  'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'

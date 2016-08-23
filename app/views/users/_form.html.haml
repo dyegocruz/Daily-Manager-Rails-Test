@@ -1,0 +1,36 @@
+= simple_form_for(@user, html: {class: 'form-horizontal' }) do |f|
+  -if @user.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@user.errors.count, "error") + 'prohibited this user from being saved:'
+
+      %ul
+        -@user.errors.full_messages.each do |message|
+          %li= message  
+
+  %div.row
+    %div.col-md-6
+
+      %div.form-group
+        = f.label :login    
+        = f.text_field :login, :required => true, :class=> "form-control"
+      
+      %div.form-group
+        = f.label :email
+        = f.email_field :email, :required => true, :class=> "form-control"
+      
+      %div.form-group
+        = f.label :role_id
+        = f.collection_select :role_id, Role.order(:name),:id,:name,{:include_blank => 'Choose one Role'}, {:class => 'form-control'}
+
+      %div.form-group
+        = f.label :password
+        = f.password_field :password, :class=> "form-control"
+      
+      %div.form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, :class=> "form-control"
+      
+      %div.actions
+        %button.btn.btn-warning{type: 'submit'}
+          ="Gravar"

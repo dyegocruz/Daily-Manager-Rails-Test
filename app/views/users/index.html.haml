@@ -1,0 +1,23 @@
+%div.page-header
+  %h1 Listing Users
+
+= link_to 'New User', new_user_path, :class => 'btn btn-success'
+
+%br
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th Login
+      %th Email
+      %th #
+  %tbody
+    -@users.each do |user|
+      %tr
+        %td= user.login
+        %td= user.email
+        %td
+          %div.btn-group
+            = link_to  'Show', user, :class => 'btn btn-info'
+            = link_to 'Edit', edit_user_path(user), :class => 'btn btn-success'
+            = link_to  'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'

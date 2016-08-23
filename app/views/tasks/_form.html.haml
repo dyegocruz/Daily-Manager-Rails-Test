@@ -1,0 +1,34 @@
+= simple_form_for(@task, html: {class: 'form-horizontal' }) do |f|
+  -if @task.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@task.errors.count, "error") + 'prohibited this user from being saved:'
+
+      %ul
+        -@task.errors.full_messages.each do |message|
+          %li= message
+
+  = f.hidden_field :user_id, :value => current_user.id
+  
+  %div.row
+    %div.col-md-6
+
+      %div.form-group
+        = f.label :yesterday    
+        = f.text_field :yesterday, :required => true, :class=> "form-control"
+
+      %div.form-group
+        = f.label :today    
+        = f.text_field :today, :required => true, :class=> "form-control"
+
+      %div.form-group
+        = f.label :impediments    
+        = f.text_field :impediments, :required => true, :class=> "form-control"    
+
+      %div.form-group
+        = f.label :task_date    
+        = f.date_select :task_date, :required => true, :class=> "form-control"            
+    
+      %div.actions
+        %button.btn.btn-warning{type: 'submit'}
+          ="Gravar"

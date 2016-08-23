@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => { :registrations => "users/new" }
+  #resources :roles  
   resources :team_members
   resources :teams
   resources :tasks
@@ -15,8 +17,8 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  get "sessions/create"
-  get "sessions/destroy"
+  #get "sessions/create"
+  #get "sessions/destroy"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
