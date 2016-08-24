@@ -1,4 +1,4 @@
-= simple_form_for(@user, html: {class: 'form-horizontal' }) do |f|
+= simple_form_for(@user, url: user_index_path, html: {class: 'form-horizontal' }) do |f|
   -if @user.errors.any?
     %div#error_explanation
       %h2

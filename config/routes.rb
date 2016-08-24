@@ -1,21 +1,26 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :registrations => "users/new" }
+  devise_for :users
+  
+  patch 'user/:id', :controller => 'user', :action => 'update'
+  resources :user, :controller => "user"
+
+  
   #resources :roles  
   resources :team_members
   resources :teams
   resources :tasks
   
-  get 'sessions/create'
-  get 'sessions/destroy'
-  resources :users
+  #get 'sessions/create'
+  #get 'sessions/destroy'
 
   get 'admin' => 'admin#index'
-  get 'logout' => 'sessions#destroy'
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
+  #get 'logout' => 'sessions#destroy'
+  #controller :sessions do
+  #  get 'login' => :new
+  #  post 'login' => :create
+  
+  #  delete 'logout' => :destroy
+  #end
 
   #get "sessions/create"
   #get "sessions/destroy"

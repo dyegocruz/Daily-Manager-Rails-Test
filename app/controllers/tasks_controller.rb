@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     #@tasks = Task.all
-    @tasks = Task.where(:user_id => session[:user_id])
+    @tasks = Task.where(:user_id => current_user.id)
   end
 
   # GET /tasks/1
