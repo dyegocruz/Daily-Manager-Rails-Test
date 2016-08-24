@@ -1,4 +1,4 @@
-= simple_form_for(@task, html: {class: 'form-horizontal' }) do |f|
+= simple_form_for(@task) do |f|
   -if @task.errors.any?
     %div#error_explanation
       %h2
@@ -14,20 +14,17 @@
     %div.col-md-6
 
       %div.form-group
-        = f.label :yesterday    
-        = f.text_field :yesterday, :required => true, :class=> "form-control"
+        = f.input :yesterday, :as => :text, :input_html => {:class => "form-control"}
 
       %div.form-group
-        = f.label :today    
-        = f.text_field :today, :required => true, :class=> "form-control"
+        = f.input :today, :as => :text, :input_html => {:class => "form-control"}
 
       %div.form-group
-        = f.label :impediments    
-        = f.text_field :impediments, :required => true, :class=> "form-control"    
+        = f.input :impediments, :as => :text, :input_html => {:class => "form-control"}
 
       %div.form-group
         = f.label :task_date    
-        = f.date_select :task_date, :required => true, :class=> "form-control"            
+        = f.date_select :task_date, :required => true, :class=> "form-control"
     
       %div.actions
         %button.btn.btn-warning{type: 'submit'}

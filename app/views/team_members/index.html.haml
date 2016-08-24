@@ -9,16 +9,16 @@
       %th User
       %th Team
       %th Is leader
-      %th #    
+      %th Options    
 
   %tbody
     -@team_members.each do |team_member|
       %tr
-        %td= team_member.user_id
-        %td= team_member.team_id
+        %td= team_member.users.first.login
+        %td= team_member.teams.first.name
         %td= team_member.is_leader
         %td
           %div.btn-group 
-            =link_to 'Show', team_member, :class => 'btn btn-info'
+            = link_to 'Show', team_member, :class => 'btn btn-info'
             = link_to 'Edit', edit_team_member_path(team_member), :class => 'btn btn-success'
             = link_to 'Destroy', team_member, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'

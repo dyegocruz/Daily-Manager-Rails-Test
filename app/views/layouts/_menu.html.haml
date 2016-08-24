@@ -1,0 +1,28 @@
+%nav.navbar.navbar-default
+  %div.container-fluid
+    %div.navbar-header
+      %button.btn.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+            
+      = link_to('Daily Manager', '/', :class => 'navbar-brand')
+    
+    %div#navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li= link_to('Home', '/')
+        
+        - if current_user.role.name == 'ADMIN'
+          %li= link_to('Users', '/user')
+          %li= link_to('Tasks', '/tasks')
+          %li= link_to('Teams', '/teams')
+          %li= link_to('Team Members', '/team_members')
+        
+        - if current_user.role.name == 'SIMPLE'
+          %li= link_to('Tasks', '/tasks')
+
+
+      
+      %ul.nav.navbar-nav.navbar-right
+        = link_to('Logout', destroy_user_session_path, :method => :delete)        

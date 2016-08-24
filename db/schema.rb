@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160823184018) do
     t.integer  "user_id"
   end
 
-  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
+  add_index "tasks", ["user_id", "task_date"], name: "index_tasks_on_user_id_and_task_date", unique: true
 
   create_table "team_members", force: :cascade do |t|
     t.boolean  "is_leader"

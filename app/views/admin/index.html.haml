@@ -1,2 +1,22 @@
-%div.page-header
-  %h1 Welcome!
+-if current_user.role.name == 'LEADER'
+	%div.page-header
+		%h1 My Teams Tasks
+		
+		%hr
+
+		-@my_teams.each do |mt|
+			%h3= mt.teams.first.name
+			%hr
+
+			-@members = @team_member.get_members_by_team_id_except_leader(mt.team_id,current_user)
+			-@members.each do |m|
+				= m.users.first.login
+				%br
+				-@task = m.users.first.tasks.size 
+				= @task
+				//where(:task_date => Date.today).where(:user_id => m.users.first.id)
+				//= @task.today
+
+-else
+	%div.page-header
+		%h1 Welcome!
