@@ -1,5 +1,3 @@
-== README
-
 # Daily-Manager-Rails-Test
 
 Projetct developed to measure my knowledge in ruby on rails
@@ -17,3 +15,11 @@ rake db:setup
 ```
 
 Your app should now be running on [localhost:3000](http://localhost:3000/).
+
+## Users examples
+
+admin@dailymanger.com
+dyego@dailymanger.com
+mariana@dailymanger.com
+
+All passwords => 123456
