@@ -1,9 +1,19 @@
 == README
 
+# Daily-Manager-Rails-Test
+
 Projetct developed to measure my knowledge in ruby on rails
 
-Run bundle install
+This is a simple Ruby app using the [Rails](http://rubyonrails.org) framework.
 
-Run rake db:migrate
+## Running Locally
 
-Run rake db:setup (to create the fisrt user)
+```sh
+git clone https://github.com/dyegocruz/Daily-Manager-Rails-Test.git
+cd Daily-Manager-Rails-Test
+bundle install
+rake db:migrate
+rake db:setup
+```
+
+Your app should now be running on [localhost:3000](http://localhost:3000/).

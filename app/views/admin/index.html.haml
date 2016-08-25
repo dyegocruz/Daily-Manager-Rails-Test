@@ -1,21 +1,31 @@
 -if current_user.role.name == 'LEADER'
 	%div.page-header
 		%h1 My Teams Tasks
-		
-		%hr
 
-		-@my_teams.each do |mt|
-			%h3= mt.teams.first.name
-			%hr
+		= form_tag('/', :method => "get", id: "search-form") do			
+			= date_field_tag 'task_date', @task_date
+			= submit_tag "Search", :class => 'btn btn-success'			
+			%b Legend
+			= link_to 'No Task registered', '#',:class => "btn btn-danger disabled"
+			= link_to 'Task registered', '#',:class => "btn btn-info disabled"
 
-			-@members = @team_member.get_members_by_team_id_except_leader(mt.team_id,current_user)
-			-@members.each do |m|
-				= m.users.first.login
-				%br
-				-@task = m.users.first.tasks.size 
-				= @task
-				//where(:task_date => Date.today).where(:user_id => m.users.first.id)
-				//= @task.today
+		%hr		
+		-@my_teams.each do |my_t|
+			//List Teams
+			-my_t.teams.each do |team|
+				%h3= team.name
+				%hr
+				//List Users of Team except Leaders
+				-team.team_members.where.not(:id => current_user.id).where.not(:is_leader => true).each do |team_m|
+					-team_m.users.each do |user|
+						-tasks = user.tasks.where(:task_date => @task_date)
+
+						-if tasks.first
+							= link_to user.login, task_path(:id => tasks.first.id), {:class=>'btn btn-info view-task',:remote => true}
+						-else
+							= link_to user.login, '#',:class => "btn btn-danger disabled"
+
+		= render 'task_modal'
 
 -else
 	%div.page-header

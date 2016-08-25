@@ -13,4 +13,28 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {  
+  $('.view-task').click(function(){
+  		var el = $(this);
+  		$.getJSON( el.attr('href'), function(json) {
+  			$("#modalTaskLabel").text(el.html()+' tasks');
+  			$("#modal-task-date").text(json.task_date);
+			  $("#modal-yesterday").text(json.yesterday);
+			  $("#modal-today").text(json.today);
+			  $("#modal-impediments").text(json.impediments);
+			});
+
+			$('#myTaskModal').modal('show');
+  });
+});
+
+function clean_modal_fields(){
+	$("#modalTaskLabel").text('');
+	$("#modal-task-date").text('');
+	$("#modal-yesterday").text('');
+	$("#modal-today").text('');
+	$("#modal-impediments").text('');
+}

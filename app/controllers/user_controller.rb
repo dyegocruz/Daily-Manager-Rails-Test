@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+  load_and_authorize_resource
   #skip_before_action :authorize, only: [:new, :create, :index]
   #before_action :set_user, only: [:show, :edit, :update, :destroy]
   #load_and_authorize_resource
@@ -47,7 +48,7 @@ class UserController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_index_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to user_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }

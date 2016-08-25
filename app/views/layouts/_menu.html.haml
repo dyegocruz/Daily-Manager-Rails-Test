@@ -14,7 +14,7 @@
         %li= link_to('Home', '/')
         
         - if current_user.role.name == 'ADMIN'
-          %li= link_to('Users', '/user')
+          %li= link_to('Users', '/users')
           %li= link_to('Tasks', '/tasks')
           %li= link_to('Teams', '/teams')
           %li= link_to('Team Members', '/team_members')

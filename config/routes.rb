@@ -1,29 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
-  
-  patch 'user/:id', :controller => 'user', :action => 'update'
-  resources :user, :controller => "user"
+  resources :users, :controller => "user"
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    match 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session,
+      :via => Devise.mappings[:user].sign_out_via
+  end
 
-  
-  #resources :roles  
   resources :team_members
   resources :teams
   resources :tasks
-  
-  #get 'sessions/create'
-  #get 'sessions/destroy'
 
   get 'admin' => 'admin#index'
-  #get 'logout' => 'sessions#destroy'
-  #controller :sessions do
-  #  get 'login' => :new
-  #  post 'login' => :create
-  
-  #  delete 'logout' => :destroy
-  #end
-
-  #get "sessions/create"
-  #get "sessions/destroy"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

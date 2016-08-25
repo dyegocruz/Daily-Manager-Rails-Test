@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  load_and_authorize_resource
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   layout "application"
 
@@ -11,7 +12,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1
   # GET /tasks/1.json
-  def show
+  def show    
   end
 
   # GET /tasks/new
