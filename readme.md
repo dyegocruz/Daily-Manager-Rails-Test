@@ -12,6 +12,7 @@ cd Daily-Manager-Rails-Test
 bundle install
 rake db:migrate
 rake db:setup
+rails s
 ```
 
 Your app should now be running on [localhost:3000](http://localhost:3000/).
