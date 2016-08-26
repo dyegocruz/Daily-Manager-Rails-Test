@@ -19,10 +19,10 @@ Your app should now be running on [localhost:3000](http://localhost:3000/).
 
 ## Users examples
 
-admin@dailymanger.com (ADMIN)
+admin@dailymanager.com (ADMIN)
 
-dyego@dailymanger.com (LEADER)
+dyego@dailymanager.com (LEADER)
 
-pedro@dailymanger.com (SIMPLE)
+pedro@dailymanager.com (SIMPLE)
 
 All passwords => 123456
